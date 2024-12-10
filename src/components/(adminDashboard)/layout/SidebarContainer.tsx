@@ -1,4 +1,4 @@
-import { ConfigProvider, Menu } from "antd";
+import { Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
 import Image from "next/image";
 import Link from "next/link";

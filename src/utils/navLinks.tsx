@@ -3,7 +3,7 @@ import { GoPeople } from "react-icons/go";
 import { LuMessageSquarePlus } from "react-icons/lu";
 import { IoSettingsOutline } from "react-icons/io5";
 import { RiLogoutCircleLine } from "react-icons/ri";
-import { CalendarCheck, Wallet } from "lucide-react";
+import { CalendarCheck, ClipboardPlus, Pill, Wallet } from "lucide-react";
 import Link from "next/link";
 
 export const navLinks = [
@@ -24,6 +24,16 @@ export const navLinks = [
     icon: <Wallet size={18} />,
     label: <Link href={"/earnings"}>Earnings</Link>,
   },
+  {
+    key: "medicine-request",
+    icon: <Pill size={18} />,
+    label: <Link href={"/medicine-request"}>Medicine Request</Link>,
+  },
+  {
+    key: "nurse-request",
+    icon: <ClipboardPlus size={18} />,
+    label: <Link href={"/nurse-request"}>Nurse Request</Link>,
+  },
 
   {
     key: "vendors",
@@ -35,11 +45,7 @@ export const navLinks = [
     icon: <GoPeople size={18} />,
     label: <Link href={"/user"}>Users</Link>,
   },
-  {
-    key: "passwordResetRequest",
-    icon: <LuMessageSquarePlus size={18} />,
-    label: <Link href={"/resetPasswordRequest"}>Password Reset Request</Link>,
-  },
+
   {
     key: "settings",
     icon: <IoSettingsOutline size={18} />,

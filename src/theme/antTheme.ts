@@ -25,7 +25,7 @@ const antTheme = {
       colorIcon: "rgba(255,255,255,0.45)",
     },
     Button: {
-      defaultBg: "#CD0335",
+      defaultBg: "#8d2e7d",
       defaultColor: "rgba(255,255,255,0.88)",
     },
     Popconfirm: {
