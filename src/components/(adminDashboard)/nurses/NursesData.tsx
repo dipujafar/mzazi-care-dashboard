@@ -1,10 +1,11 @@
 "use client";
 import { Input, message, Popconfirm, PopconfirmProps, TableProps } from "antd";
 import { MdOutlineErrorOutline } from "react-icons/md";
-import UserDetails from "./UserDetails";
+
 import { useState } from "react";
 import DataTable from "@/utils/DataTable";
 import { CgUnblock } from "react-icons/cg";
+import NurseDetails from "./NurseDetails";
 
 type TDataType = {
   key?: number;
@@ -28,7 +29,7 @@ const confirmBlock: PopconfirmProps["onConfirm"] = (e) => {
   message.success("Blocked the subadmin");
 };
 
-const UsersTable = () => {
+const NursesData = () => {
   const [open, setOpen] = useState(false);
 
   const columns: TableProps<TDataType>["columns"] = [
@@ -37,7 +38,7 @@ const UsersTable = () => {
       dataIndex: "serial",
     },
     {
-      title: "User Name",
+      title: "Nurse Name",
       dataIndex: "name",
     },
     {
@@ -80,16 +81,16 @@ const UsersTable = () => {
   return (
     <div className="bg-[#EEE0EC] rounded-md">
       <div className="flex justify-between items-center px-10 py-5">
-        <h1 className="  text-2xl text-black/80">User List</h1>
+        <h1 className="  text-2xl text-black/80">Nurse List</h1>
         <Input
           style={{ width: "220px", borderRadius: "20px" }}
           placeholder="Search"
         ></Input>
       </div>
       <DataTable columns={columns} data={data} pageSize={10}></DataTable>
-      <UserDetails open={open} setOpen={setOpen}></UserDetails>
+      <NurseDetails open={open} setOpen={setOpen}></NurseDetails>
     </div>
   );
 };
 
-export default UsersTable;
+export default NursesData;

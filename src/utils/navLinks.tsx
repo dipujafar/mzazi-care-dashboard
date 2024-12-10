@@ -1,6 +1,5 @@
 import { RiDashboardHorizontalFill } from "react-icons/ri";
 import { GoPeople } from "react-icons/go";
-import { LuMessageSquarePlus } from "react-icons/lu";
 import { IoSettingsOutline } from "react-icons/io5";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { CalendarCheck, ClipboardPlus, Pill, Wallet } from "lucide-react";
@@ -36,14 +35,14 @@ export const navLinks = [
   },
 
   {
-    key: "vendors",
-    icon: <GoPeople size={18} />,
-    label: <Link href={"/vendors"}>Vendors</Link>,
-  },
-  {
     key: "users",
     icon: <GoPeople size={18} />,
     label: <Link href={"/user"}>Users</Link>,
+  },
+  {
+    key: "nurses",
+    icon: <GoPeople size={18} />,
+    label: <Link href={"/nurses"}>Nurses</Link>,
   },
 
   {

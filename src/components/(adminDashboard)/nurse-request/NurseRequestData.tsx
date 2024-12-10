@@ -1,10 +1,9 @@
 "use client";
 import { TableProps } from "antd";
 import { MdOutlineErrorOutline } from "react-icons/md";
-
 import { useState } from "react";
 import DataTable from "@/utils/DataTable";
-import UserDetails from "../user/UserDetails";
+import NurseRequestDetailsModal from "./NurseRequestDetailsModal";
 
 type TDataType = {
   key?: number;
@@ -12,18 +11,18 @@ type TDataType = {
   name: string;
   email: string;
   date: string;
-  type: string;
+  phone: string;
 };
 const data: TDataType[] = Array.from({ length: 18 }).map((data, inx) => ({
   key: inx,
   serial: inx + 1,
   name: "James Tracy",
   email: "james1234@gmail.comm",
-  type: "User",
+  phone: "12345678",
   date: "11 Oct, 2024",
 }));
 
-const LatestUser = () => {
+const NurseRequestData = () => {
   const [open, setOpen] = useState(false);
 
   const columns: TableProps<TDataType>["columns"] = [
@@ -32,7 +31,7 @@ const LatestUser = () => {
       dataIndex: "serial",
     },
     {
-      title: "Full Name",
+      title: "Name",
       dataIndex: "name",
     },
     {
@@ -41,11 +40,12 @@ const LatestUser = () => {
     },
 
     {
-      title: "Type",
-      dataIndex: "type",
+      title: "Phone Number",
+      dataIndex: "phone",
     },
+
     {
-      title: "Join Date",
+      title: "Date",
       dataIndex: "date",
     },
     {
@@ -64,11 +64,15 @@ const LatestUser = () => {
   ];
 
   return (
-    <div>
+    <div className="bg-[#EEE0EC] rounded-md">
+      <h1 className="py-5 px-5 text-2xl text-black/80">Request List</h1>
       <DataTable columns={columns} data={data} pageSize={10}></DataTable>
-      <UserDetails open={open} setOpen={setOpen}></UserDetails>
+      <NurseRequestDetailsModal
+        open={open}
+        setOpen={setOpen}
+      ></NurseRequestDetailsModal>
     </div>
   );
 };
 
-export default LatestUser;
+export default NurseRequestData;
