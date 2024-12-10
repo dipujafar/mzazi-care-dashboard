@@ -1,4 +1,4 @@
-import { Button, Divider, Modal } from "antd";
+import { Divider, Modal } from "antd";
 import Image from "next/image";
 import { RiCloseLargeLine } from "react-icons/ri";
 import fileImage from "@/assets/image/pdf.png";

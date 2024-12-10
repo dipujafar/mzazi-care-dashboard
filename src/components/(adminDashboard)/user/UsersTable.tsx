@@ -8,7 +8,7 @@ import { CgUnblock } from "react-icons/cg";
 
 type TDataType = {
   key?: number;
-  serial: string;
+  serial: number;
   name: string;
   email: string;
   phone: string;
@@ -16,7 +16,7 @@ type TDataType = {
 };
 const data: TDataType[] = Array.from({ length: 18 }).map((data, inx) => ({
   key: inx,
-  serial: "12345678",
+  serial: inx + 1,
   name: "James Tracy",
   email: "james1234@gmail.comm",
   phone: "12345678",
@@ -25,7 +25,7 @@ const data: TDataType[] = Array.from({ length: 18 }).map((data, inx) => ({
 
 const confirmBlock: PopconfirmProps["onConfirm"] = (e) => {
   console.log(e);
-  message.success("Blocked the subadmin");
+  message.success("Blocked the user");
 };
 
 const UsersTable = () => {
@@ -33,7 +33,7 @@ const UsersTable = () => {
 
   const columns: TableProps<TDataType>["columns"] = [
     {
-      title: "#Tr.ID",
+      title: "#SL",
       dataIndex: "serial",
     },
     {

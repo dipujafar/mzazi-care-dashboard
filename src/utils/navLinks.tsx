@@ -2,8 +2,15 @@ import { RiDashboardHorizontalFill } from "react-icons/ri";
 import { GoPeople } from "react-icons/go";
 import { IoSettingsOutline } from "react-icons/io5";
 import { RiLogoutCircleLine } from "react-icons/ri";
-import { CalendarCheck, ClipboardPlus, Pill, Wallet } from "lucide-react";
+import {
+  CalendarCheck,
+  ClipboardPlus,
+  Pill,
+  UserCheck,
+  Wallet,
+} from "lucide-react";
 import Link from "next/link";
+import { MdPriceCheck } from "react-icons/md";
 
 export const navLinks = [
   {
@@ -43,6 +50,16 @@ export const navLinks = [
     key: "nurses",
     icon: <GoPeople size={18} />,
     label: <Link href={"/nurses"}>Nurses</Link>,
+  },
+  {
+    key: "ambulance-providers",
+    icon: <GoPeople size={18} />,
+    label: <Link href={"/ambulance-providers"}>Ambulance Providers</Link>,
+  },
+  {
+    key: "memberships",
+    icon: <MdPriceCheck size={18} />,
+    label: <Link href={"/membership"}>Membership</Link>,
   },
 
   {

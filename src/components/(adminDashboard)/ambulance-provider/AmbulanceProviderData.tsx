@@ -5,7 +5,7 @@ import { MdOutlineErrorOutline } from "react-icons/md";
 import { useState } from "react";
 import DataTable from "@/utils/DataTable";
 import { CgUnblock } from "react-icons/cg";
-import NurseDetails from "./NurseDetails";
+import AmbulanceProviderDetailsModal from "./AmbulanceProviderDetailsModal";
 
 type TDataType = {
   key?: number;
@@ -25,10 +25,10 @@ const data: TDataType[] = Array.from({ length: 18 }).map((data, inx) => ({
 }));
 
 const confirmBlock: PopconfirmProps["onConfirm"] = (e) => {
-  message.success("Blocked the Nurse");
+  message.success("Blocked the ambulance provider");
 };
 
-const NursesData = () => {
+const AmbulanceProviderData = () => {
   const [open, setOpen] = useState(false);
 
   const columns: TableProps<TDataType>["columns"] = [
@@ -37,7 +37,7 @@ const NursesData = () => {
       dataIndex: "serial",
     },
     {
-      title: "Nurse Name",
+      title: "Provider Name",
       dataIndex: "name",
     },
     {
@@ -80,16 +80,19 @@ const NursesData = () => {
   return (
     <div className="bg-[#EEE0EC] rounded-md">
       <div className="flex justify-between items-center px-10 py-5">
-        <h1 className="  text-2xl text-black/80">Nurse List</h1>
+        <h1 className="  text-2xl text-black/80">Ambulance Provider List</h1>
         <Input
           style={{ width: "220px", borderRadius: "20px" }}
           placeholder="Search"
         ></Input>
       </div>
       <DataTable columns={columns} data={data} pageSize={10}></DataTable>
-      <NurseDetails open={open} setOpen={setOpen}></NurseDetails>
+      <AmbulanceProviderDetailsModal
+        open={open}
+        setOpen={setOpen}
+      ></AmbulanceProviderDetailsModal>
     </div>
   );
 };
 
-export default NursesData;
+export default AmbulanceProviderData;
