@@ -1,8 +1,11 @@
+"use client";
 import { Button, Modal } from "antd";
 import { RiCloseLargeLine } from "react-icons/ri";
 import nurseImage from "@/assets/image/nurseImage.png";
 import Image from "next/image";
 import { Star } from "lucide-react";
+import NurseDetailsModal from "../all-nurses/NurseDetailsModal";
+import { useState } from "react";
 
 type TPropsType = {
   open: boolean;
@@ -10,6 +13,7 @@ type TPropsType = {
 };
 
 const UserCancelModal = ({ open, setOpen }: TPropsType) => {
+  const [openNurseDetails, setOpenNurseDetail] = useState(false);
   return (
     <Modal
       open={open}
@@ -54,7 +58,7 @@ const UserCancelModal = ({ open, setOpen }: TPropsType) => {
           <h4 className="text-main-color text-xl font-medium mb-3">
             Reject Nurse
           </h4>
-          {/* ________ user details */}
+          {/* _________________ Nurse details_________ */}
           <div className="p-3 bg-[#c4ebe9] rounded">
             <div className="flex justify-between items-center  gap-x-3 mt-3">
               <div className="space-y-1">
@@ -97,7 +101,14 @@ const UserCancelModal = ({ open, setOpen }: TPropsType) => {
               </div>
             </div>
             {/* ____________________________________ Details Button ______________________________ */}
-            <Button className="w-full mt-3">See Details</Button>
+            <Button
+              onClick={() => {
+                setOpenNurseDetail(true);
+              }}
+              className="w-full mt-3"
+            >
+              See Details
+            </Button>
           </div>
 
           {/* ____________________________________Suggested Nurse ______________________________ */}
@@ -148,6 +159,10 @@ const UserCancelModal = ({ open, setOpen }: TPropsType) => {
         </Button>
         <Button className="flex-1">Reassign</Button>
       </div>
+      <NurseDetailsModal
+        open={openNurseDetails}
+        setOpen={setOpenNurseDetail}
+      ></NurseDetailsModal>
     </Modal>
   );
 };

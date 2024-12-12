@@ -11,6 +11,7 @@ import Image from "next/image";
 import { ArrowDownWideNarrowIcon } from "lucide-react";
 import UserCancelModal from "./UserCancelModal";
 import NurseRejectModal from "./NurseRejectModal";
+import Link from "next/link";
 
 type TDataType = {
   key?: number;
@@ -179,13 +180,13 @@ const NursesRequestData = () => {
       title: "Action",
       dataIndex: "action",
       render: () => (
-        <div>
+        <Link href={"/request-nurse"}>
           <MdOutlineErrorOutline
             size={20}
             color="#8D2E7D"
             onClick={() => setOpenUserReject(!open)}
           />
-        </div>
+        </Link>
       ),
     },
   ];
