@@ -33,11 +33,6 @@ const UserDetails = ({ open, setOpen }: TPropsType) => {
         <h4 className="text-center text-2xl font-medium">User Details</h4>
         <div className="mt-10">
           <div className="flex justify-between">
-            <h4>Date :</h4>
-            <p className="font-medium">01-24-2024</p>
-          </div>
-          <Divider></Divider>
-          <div className="flex justify-between">
             <h4>User name :</h4>
             <p className="font-medium">James Tracy</p>
           </div>
@@ -51,6 +46,12 @@ const UserDetails = ({ open, setOpen }: TPropsType) => {
             <h4>Phone Number :</h4>
             <p className="font-medium">+1-800-925-6278</p>
           </div>
+          <Divider></Divider>
+          <div className="flex justify-between">
+            <h4>Join Date :</h4>
+            <p className="font-medium">01-24-2024</p>
+          </div>
+
           <Divider></Divider>
           <div className="flex justify-between">
             <h4>Address :</h4>

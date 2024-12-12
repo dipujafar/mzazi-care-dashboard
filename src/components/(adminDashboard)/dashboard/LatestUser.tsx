@@ -64,7 +64,8 @@ const LatestUser = () => {
   ];
 
   return (
-    <div>
+    <div className="bg-[#EEE0EC] rounded-md">
+      <h1 className="py-5 px-5 text-2xl text-black/80">Latest Users</h1>
       <DataTable columns={columns} data={data} pageSize={10}></DataTable>
       <UserDetails open={open} setOpen={setOpen}></UserDetails>
     </div>
