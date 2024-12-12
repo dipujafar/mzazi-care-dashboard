@@ -1,5 +1,5 @@
 "use client";
-import { Button, ConfigProvider, Form, Input } from "antd";
+import { Button, ConfigProvider, Form, Input, Upload } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa6";
@@ -7,11 +7,14 @@ import { FiEdit } from "react-icons/fi";
 import profile from "@/assets/image/adminProfile.png";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Camera, X } from "lucide-react";
 
 const PersonalInformationContainer = () => {
   const route = useRouter();
   const [form] = Form.useForm();
   const [edit, setEdit] = useState(false);
+  const [fileName, setFileName] = useState<File | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   // @ts-expect-error: Ignoring TypeScript error due to inferred 'any' type for 'values' which is handled in the form submit logic
   const handleSubmit = (values) => {
@@ -20,6 +23,25 @@ const PersonalInformationContainer = () => {
       duration: 1000,
     });
     setEdit(false);
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.target;
+
+    const file = input.files?.[0];
+    console.log(file);
+
+    if (file) {
+      const url = URL.createObjectURL(file);
+      console.log(url);
+      setImageUrl(url);
+      setFileName(file);
+    } else {
+      setImageUrl(null);
+      setFileName(null);
+    }
+
+    input.value = "";
   };
 
   return (
@@ -39,14 +61,48 @@ const PersonalInformationContainer = () => {
       </div>
 
       {/* personal information */}
-      <div className="mt-10 flex justify-center  gap-10">
-        <div className="bg-[#F8D9E1] h-[365px] w-1/4 rounded-xl border border-[#8D2E7D] flex justify-center items-center ">
-          <div className="space-y-1">
-            <Image
-              src={profile}
-              alt="adminProfile"
-              className="size-36 rounded-full"
-            ></Image>
+      <div className="mt-10 flex justify-center flex-col xl:flex-row items-center  gap-10">
+        <div className="bg-[#e9dce7] h-[365px] md:w-[350px] rounded-xl border border-[#8D2E7D] flex justify-center items-center ">
+          <div className="space-y-1 relative">
+            <div className="relative group">
+              <Image
+                src={imageUrl || profile}
+                alt="adminProfile"
+                width={1200}
+                height={1200}
+                className="size-36 rounded-full flex justify-center items-center"
+              ></Image>
+
+              {/* cancel button */}
+              {fileName && imageUrl && (
+                <div
+                  className="absolute right-4 top-2 cursor-pointer rounded-md bg-primary-pink opacity-0 duration-1000 group-hover:opacity-100"
+                  onClick={() => {
+                    setFileName(null);
+                    setImageUrl(null);
+                  }}
+                >
+                  <X color="red" />
+                </div>
+              )}
+              {/* upload image */}
+              <input
+                type="file"
+                id="fileInput"
+                className="hidden"
+                onChange={handleFileChange}
+                accept="image/*"
+              />
+              {/* upload button */}
+              <label
+                htmlFor="fileInput"
+                className="flex cursor-pointer flex-col items-center"
+              >
+                <div className="bg-white text-black text-lg p-1 rounded-full  absolute bottom-0 right-3">
+                  <Camera size={20} />
+                </div>
+              </label>
+            </div>
             <h3 className="text-2xl text-center">Admin</h3>
             <h5 className="text-lg text-center">Profile</h5>
           </div>
@@ -57,7 +113,7 @@ const PersonalInformationContainer = () => {
             theme={{
               components: {
                 Input: {
-                  colorBgContainer: "rgb(248,217,225)",
+                  colorBgContainer: "#e9dce7",
                 },
               },
             }}

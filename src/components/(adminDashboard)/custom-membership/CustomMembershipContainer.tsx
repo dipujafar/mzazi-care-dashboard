@@ -4,6 +4,7 @@ import { MdOutlineErrorOutline } from "react-icons/md";
 import { useState } from "react";
 import DataTable from "@/utils/DataTable";
 import { Check } from "lucide-react";
+import CustomMembershipPlanModal from "./CustomMembershipPlanModal";
 
 type TDataType = {
   key?: number;
@@ -64,7 +65,9 @@ const CustomMembershipContainer = () => {
             color="#8D2E7D"
             onClick={() => setOpen(!open)}
           />
-          <Check size={20} color="#023020"></Check>
+          <div className="cursor-pointer">
+            <Check size={20} color="#023020"></Check>
+          </div>
         </div>
       ),
     },
@@ -74,6 +77,10 @@ const CustomMembershipContainer = () => {
     <div className="bg-[#EEE0EC] rounded-md">
       <h1 className="py-5 px-5 text-2xl text-black/80">Custom plan List</h1>
       <DataTable columns={columns} data={data} pageSize={10}></DataTable>
+      <CustomMembershipPlanModal
+        open={open}
+        setOpen={setOpen}
+      ></CustomMembershipPlanModal>
     </div>
   );
 };

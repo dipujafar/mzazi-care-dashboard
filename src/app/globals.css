@@ -77,3 +77,13 @@ body {
 .ant-menu-item-selected > svg {
   color: #8d2e7d !important;
 }
+
+/* ant design upload related style */
+.ant-upload-list-item {
+  background-color: #8d2e7d !important;
+  color: #ffffff !important;
+  max-width: 200px !important;
+}
+.anticon-delete > svg {
+  fill: red !important;
+}
