@@ -4,10 +4,6 @@ const antTheme = {
     colorInfo: "#8D2E7D",
   },
   components: {
-    Input: {
-      colorIcon: "rgb(205,3,53)",
-      colorBorder: "rgb(244,16,16)",
-    },
     Layout: {
       bodyBg: "rgb(255,255,255)",
     },

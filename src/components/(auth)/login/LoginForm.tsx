@@ -57,7 +57,7 @@ const LoginForm = () => {
           <Checkbox>
             <p className="text-main-color font-semibold">Remember me</p>
           </Checkbox>
-          <Link href={"/forgetPassword"} style={{ textDecoration: "" }}>
+          <Link href={"/forget-password"} style={{ textDecoration: "" }}>
             <p className="font-semibold">Forgot Password?</p>
           </Link>
         </Flex>
@@ -67,7 +67,7 @@ const LoginForm = () => {
         htmlType="submit"
         size="large"
         style={{
-          backgroundColor: "#CD0335",
+          backgroundColor: "#8d2e7d",
           color: "#FFFFFF",
           width: "100%",
           border: "none",

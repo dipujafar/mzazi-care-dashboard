@@ -4,23 +4,20 @@ import { Button, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
 
 type FieldType = {
-  opt?: string;
+  setPassword?: string;
+  reSetPassword?: string;
 };
 
 const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
   console.log("Failed:", errorInfo);
 };
 
-const VerifyEmailForm = () => {
+const ResetPasswordForm = () => {
   const route = useRouter();
 
-  //handle password change
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     console.log("Success:", values);
-
-    if (values.opt) {
-      route.push("/reset-password");
-    }
+    route.push("/login");
   };
 
   return (
@@ -32,8 +29,18 @@ const VerifyEmailForm = () => {
       autoComplete="off"
       layout="vertical"
     >
-      <Form.Item<FieldType> name="opt">
-        <Input.OTP size="large" />
+      <Form.Item<FieldType>
+        name="setPassword"
+        rules={[{ required: true, message: "Please your set password!" }]}
+      >
+        <Input.Password size="large" placeholder="Set your password" />
+      </Form.Item>
+
+      <Form.Item<FieldType>
+        name="reSetPassword"
+        rules={[{ required: true, message: "Please input your password!" }]}
+      >
+        <Input.Password size="large" placeholder="Re-enter password" />
       </Form.Item>
 
       <Button
@@ -46,10 +53,10 @@ const VerifyEmailForm = () => {
           border: "none",
         }}
       >
-        Verify Email
+        Sign In
       </Button>
     </Form>
   );
 };
 
-export default VerifyEmailForm;
+export default ResetPasswordForm;

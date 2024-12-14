@@ -17,9 +17,8 @@ const LoginPage = () => {
           <div className="mb-6   flex flex-col justify-center items-center gap-y-4">
             <div>
               <Image src={logo} alt="logImage"></Image>
-              <h1 className=" mt-3 font-extrabold text-main-color">YUMQUICK</h1>
             </div>
-            <h2 className="text-2xl  font-bold  ">Sign In</h2>
+            <h2 className="text-2xl  font-bold text-black ">Sign In</h2>
           </div>
           <LoginForm></LoginForm>
         </div>

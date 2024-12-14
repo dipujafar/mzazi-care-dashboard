@@ -1,11 +1,26 @@
-import { Menu } from "antd";
+"use client";
+import { Menu, MenuProps } from "antd";
 import Sider from "antd/es/layout/Sider";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/assets/logo-white.png";
 import { navLinks } from "@/utils/navLinks";
+import { useEffect, useState } from "react";
 
 const SidebarContainer = ({ collapsed }: { collapsed: boolean }) => {
+  const [current, setCurrent] = useState("dashboard");
+
+  const onClick: MenuProps["onClick"] = (e) => {
+    setCurrent(e.key);
+    if (e.key === "logout") return;
+    localStorage.setItem("activeNav", e.key);
+  };
+
+  useEffect(() => {
+    const activeKey = localStorage.getItem("activeNav");
+    if (!activeKey) return;
+    setCurrent(activeKey as string);
+  }, [current, setCurrent]);
   return (
     <Sider
       width={330}
@@ -33,7 +48,9 @@ const SidebarContainer = ({ collapsed }: { collapsed: boolean }) => {
         ></h1>
       </div>
       <Menu
+        onClick={onClick}
         defaultSelectedKeys={["dashboard"]}
+        selectedKeys={[current]}
         mode="inline"
         className="sidebar-menu text-lg bg-main-color"
         items={navLinks}

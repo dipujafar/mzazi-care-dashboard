@@ -1,30 +1,27 @@
 "use client";
 import type { FormProps } from "antd";
-import { Button,  Form, Input} from "antd";
+import { Button, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
 
 type FieldType = {
   email?: string;
 };
 
-
-
 const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
   console.log("Failed:", errorInfo);
 };
 
 const ForgetPassForm = () => {
-    const route = useRouter();
+  const route = useRouter();
 
+  //handle password change
+  const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
+    console.log("Success:", values);
 
-    //handle password change
-    const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
-        console.log("Success:", values);
-        
-        if(values.email){
-          route.push("/verifyEmail")
-        }
-      };
+    if (values.email) {
+      route.push("/verify-email");
+    }
+  };
 
   return (
     <Form
@@ -34,7 +31,6 @@ const ForgetPassForm = () => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
       layout="vertical"
-      
     >
       <Form.Item<FieldType>
         name="email"
@@ -50,17 +46,17 @@ const ForgetPassForm = () => {
       </Form.Item>
 
       <Button
-          htmlType="submit"
-          size="large"
-          style={{
-            backgroundColor: "#CD0335",
-            color: "#FFFFFF",
-            width: "100%",
-            border: "none",
-          }}
-        >
-         Send OTP
-        </Button>
+        htmlType="submit"
+        size="large"
+        style={{
+          backgroundColor: "#8d2e7d",
+          color: "#FFFFFF",
+          width: "100%",
+          border: "none",
+        }}
+      >
+        Send OTP
+      </Button>
     </Form>
   );
 };
