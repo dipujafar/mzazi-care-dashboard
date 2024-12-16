@@ -52,7 +52,7 @@ const CustomMembershipContainer = () => {
     {
       title: "amount",
       dataIndex: "amount",
-      render: (value) => <Input style={{ width: "100px" }}></Input>,
+      render: () => <Input style={{ width: "100px" }}></Input>,
     },
 
     {

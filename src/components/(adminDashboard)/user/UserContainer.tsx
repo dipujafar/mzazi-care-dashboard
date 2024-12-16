@@ -1,13 +1,7 @@
 "use client";
-import { AutoCompleteProps } from "antd";
-import { useState } from "react";
 import UsersTable from "./UsersTable";
 import Image from "next/image";
 import userIcon from "@/assets/icons/user-group.png";
-
-const mockVal = (str: string, repeat = 1) => ({
-  value: str.repeat(repeat),
-});
 
 const UserContainer = () => {
   return (

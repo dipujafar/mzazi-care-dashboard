@@ -36,7 +36,7 @@ const AllNursesContainer = () => {
         {Array(10)
           .fill(0)
           .map((_, index) => (
-            <div className="p-3 bg-[#c4ebe9] rounded">
+            <div key={index} className="p-3 bg-[#c4ebe9] rounded">
               <div className="flex justify-between items-center  gap-x-3 mt-3">
                 <div className="space-y-1">
                   <Image

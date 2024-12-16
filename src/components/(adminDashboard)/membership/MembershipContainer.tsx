@@ -53,8 +53,8 @@ const MembershipContainer = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* normal membership packages */}
-      {membershipPackages.map((membershipPackage) => (
-        <MembershipCard data={membershipPackage}>
+      {membershipPackages.map((membershipPackage, index) => (
+        <MembershipCard key={index} data={membershipPackage}>
           <div className="flex  gap-x-4 w-full xl:px-20 px-5">
             <div className="flex-1">
               <Button

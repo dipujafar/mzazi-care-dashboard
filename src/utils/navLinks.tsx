@@ -2,13 +2,7 @@ import { RiDashboardHorizontalFill } from "react-icons/ri";
 import { GoPeople } from "react-icons/go";
 import { IoSettingsOutline } from "react-icons/io5";
 import { RiLogoutCircleLine } from "react-icons/ri";
-import {
-  CalendarCheck,
-  ClipboardPlus,
-  Pill,
-  UserCheck,
-  Wallet,
-} from "lucide-react";
+import { CalendarCheck, ClipboardPlus, Pill, Wallet } from "lucide-react";
 import Link from "next/link";
 import { MdPriceCheck } from "react-icons/md";
 
@@ -68,7 +62,7 @@ export const navLinks = [
     label: <Link href={"/settings"}>Settings</Link>,
   },
   {
-    key: "logOut",
+    key: "logout",
     icon: <RiLogoutCircleLine size={18} />,
     label: <Link href={"/login"}>Logout</Link>,
   },

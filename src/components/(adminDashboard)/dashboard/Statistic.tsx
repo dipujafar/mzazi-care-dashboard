@@ -1,6 +1,3 @@
-import Image from "next/image";
-import vendorsIcon from "@/assets/icons/statisticVendors.png";
-
 const Statistic = () => {
   return (
     <div className="flex justify-between gap-5 flex-wrap">

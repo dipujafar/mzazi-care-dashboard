@@ -1,8 +1,6 @@
 "use client";
 import { Button, Divider, Input, Modal } from "antd";
-import Image from "next/image";
 import { RiCloseLargeLine } from "react-icons/ri";
-import fileImage from "@/assets/image/pdf.png";
 
 type TPropsType = {
   open: boolean;

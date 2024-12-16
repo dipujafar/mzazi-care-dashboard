@@ -93,8 +93,8 @@ const RequestContainer = () => {
         {/* ____________if have any assigned nurse show here___________ */}
         <h4 className="text-2xl font-semibold mb-3">Assigned Nurses</h4>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  gap-5">
-          {Array.from({ length: 2 }).map((data, inx) => (
-            <div className="p-3 bg-[#c4ebe9] rounded">
+          {Array.from({ length: 2 }).map((_, index) => (
+            <div key={index} className="p-3 bg-[#c4ebe9] rounded">
               <div className="flex justify-between items-center  gap-x-3 mt-3">
                 <div className="space-y-1">
                   <Image

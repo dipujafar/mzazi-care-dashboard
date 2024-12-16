@@ -1,5 +1,5 @@
 "use client";
-import { Button, ConfigProvider, Form, Input, Upload } from "antd";
+import { Button, ConfigProvider, Form, Input } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa6";

@@ -12,7 +12,10 @@ const SidebarContainer = ({ collapsed }: { collapsed: boolean }) => {
 
   const onClick: MenuProps["onClick"] = (e) => {
     setCurrent(e.key);
-    if (e.key === "logout") return;
+    if (e.key === "logout") {
+      localStorage.removeItem("activeNav");
+      return;
+    }
     localStorage.setItem("activeNav", e.key);
   };
 

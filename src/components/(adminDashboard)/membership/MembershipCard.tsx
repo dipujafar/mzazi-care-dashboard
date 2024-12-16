@@ -35,8 +35,8 @@ const MembershipCard = ({
 
       {/* features of the package */}
       <div className="flex flex-col gap-y-3">
-        {data?.features?.map((feature) => (
-          <div className="flex   gap-x-2">
+        {data?.features?.map((feature, index) => (
+          <div key={index} className="flex   gap-x-2">
             <div className="bg-main-color p-1 rounded-full h-fit">
               <Check size={14} color="#fff" />
             </div>
