@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useState } from "react";
-import {  ConfigProvider, Layout, theme } from "antd";
+import { ConfigProvider, Layout, theme } from "antd";
 import SidebarContainer from "@/components/(adminDashboard)/layout/SidebarContainer";
 import HeaderContainer from "@/components/(adminDashboard)/layout/HeaderContainer";
 
@@ -30,7 +30,7 @@ const AdminLayout = ({ children }: { children: ReactNode }) => {
         },
       }}
     >
-      <Layout style={{ height: "100vh", overflow: "auto" }}>
+      <Layout style={{ height: "100vh", overflow: "auto" }} hasSider>
         <SidebarContainer collapsed={collapsed}></SidebarContainer>
         <Layout>
           <HeaderContainer
